@@ -78,7 +78,7 @@ const productControl = require("../controllers/productMongoDb");
 const cartControl = require("../controllers/cartHandler");
 const { crossOriginResourcePolicy } = require("helmet");
 app.set("view engine", "ejs");
-app.set("views", "mvcShop1/views");
+app.set("views", "mvcshop1/views");
 
 app.use(helmet({
     contentSecurityPolicy:{
@@ -274,7 +274,7 @@ app.post("/invoice/orders/:orderId", authen.isAuth, orders.invoiceDownload);
 
 app.get("/", productControl.homePage);
 
-app.use("/",(error,req,res,next) => {
+app.use((error,req,res,next) => {
     res.render("../views/errorPage.ejs",{
         status:error.statusCode,
         message:error.message
