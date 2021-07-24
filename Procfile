@@ -1,1 +1,1 @@
-web: node ./mvcshop1/routes/shop.js
+web: node mvcshop1/routes/shop.js
