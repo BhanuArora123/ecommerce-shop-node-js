@@ -1,0 +1,37 @@
+<%- include("./layouts/head.ejs") %>
+<body>
+    <%- include("./layouts/nav.ejs") %>
+    <% if(errors.length != 0){ %>
+      <% errors.forEach((error) => { %>
+        <div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center mb-0 mt-0" role="alert">
+          <%= error.msg %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }) %>
+    <% } %>
+    <div class="container w-100 d-flex justify-content-center align-items-center signupBox">
+        <form class="w-75 h-75 mt-20" action="/sign-up" method="post" novalidate>
+            <div class="row mb-3">
+              <label for="emailId" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input class="<%= errors.find(e => {return e.param == 'email'}) != undefined ? 'text-danger border-danger form-control':'form-control' %>" type="email" id="emailId" name="email" value="<%= oldInput.email %>">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="pass" class="col-sm-2 col-form-label">Password</label>
+              <div class="col-sm-10">
+                <input class="<%= errors.find(e => {return e.param == 'pass'}) != undefined ? 'text-danger border-danger form-control':'form-control' %>" type="password" id="pass" name="pass" value="<%= oldInput.pass %>">
+              </div>
+            </div>
+            <div class="row mb-3">
+                <label for="conpass" class="col-sm-2 col-form-label" >Confirm Password</label>
+                <div class="col-sm-10">
+                  <input class="<%= errors.find(e => {return e.param == 'conPass'}) != undefined ? 'text-danger border-danger form-control':'form-control' %>" type="password" class="form-control" id="conpass" name="conPass" value="<%= oldInput.conPass %>">
+                </div>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit" class="btn btn-success">Sign Up</button>
+          </form>
+    </div>
+    <%- include("./layouts/end.ejs") %>
+</body>

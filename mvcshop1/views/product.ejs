@@ -1,0 +1,49 @@
+<%- include("./layouts/head.ejs") %>
+
+    <body>
+        <%-include("./layouts/nav.ejs") %>
+            <% if(editProd==true){ %>
+                <div class="container w-100">
+                    <div class="alert alert-success alert-dismissible fade show h-100 w-100" role="alert">
+                        <strong>Success!</strong> Your product is successfully edited
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+                <% }%>
+                    <div class="d-flex justify-content-around mainBox flex-wrap progress productBox">
+                        <% prods.forEach((element)=> { %>
+                            <div class="card position-relative">
+                                <% if(loggedIn && userId.toString()==element.userId.toString()){%>
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <input type="hidden" name="prodId" value="<%= element._id %>">
+                                    <div class="d-flex justify-content-center align-items-center deleteBtn">
+                                        <i class="far fa-window-close fa-3x" nonce='<%= nonce %>'></i>
+                                    </div>
+                                    <% } %>
+                                        <div class="card-body productCard">
+                                            <div class="container d-flex flex-column justify-content-evenly align-items-center p-0 imgBox">
+                                                <img src="/<%= element.imageurl %>" class="card-img-top displayProd" data-Id="<%=element._id %>" alt='<%=element._id %>'>
+                                                <h5 class="card-title fs-4 text-capitalize">
+                                                    <%=element.title %>
+                                                </h5>
+                                            </div>
+                                            <div class="container d-flex justify-content-between w-100 p-0">
+                                                <% if(loggedIn && userId.toString()==element.userId.toString()){%>
+                                                    <a href="/edit-product/<%= element._id %>?edit=true"
+                                                        class="btn btn-primary details d-flex justify-content-center align-items-center">Edit</a>
+                                                    <% } %>
+                                                        <%- include("./layouts/redirectToCart.ejs",{element:element,loggedIn
+                                                            : loggedIn}) %>
+                                            </div>
+                                        </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                    <%- include("./layouts/pagination.ejs",{currentPage: currentPage,totalPages:totalPages,nextPage:nextPage,prevPage:prevPage}) %>
+                    <%- include("./layouts/end.ejs") %>
+                    <script src="/mvcshop1/public/productDelete.js"></script>
+                    <!-- <script src="/mvcshop1/public/productDisplay.js"></script> -->
+                    <script nonce='<%= nonce %>' src="https://kit.fontawesome.com/bedf74ce64.js" crossorigin="anonymous"></script>
+    </body>
+
+    </html>

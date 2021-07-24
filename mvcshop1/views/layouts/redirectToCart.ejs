@@ -1,0 +1,7 @@
+<% if(loggedIn) { %>
+    <form action="/cart" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <input type="hidden" name="cartObj" value = "<%= JSON.stringify(element) %>" >
+        <button class="btn btn-primary details"><i class="fas fa-cart-plus fa-lg"></i>&nbsp;&nbsp;Add To Cart</button>
+    </form>
+<% } %>

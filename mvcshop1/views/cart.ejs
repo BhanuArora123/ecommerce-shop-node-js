@@ -1,0 +1,33 @@
+<%-include("./layouts/head.ejs") %>
+
+    <body>
+        <%-include("./layouts/nav.ejs",loggedIn) %>
+        <div class="d-flex justify-content-around flex-wrap progress wrapperBox">
+                <% prods.forEach((element)=> { %>
+                    <% if(element.prodId){ %>
+                        <div class="card">
+                            <a href="/cart/delete/<%= element.prodId._id %>" class="d-flex justify-content-center align-items-center deleteBtn1">
+                                <i class="far fa-window-close fa-3x"></i>
+                            </a>
+                            <div class="card-body d-flex flex-column justify-content-evenly align-items-center">
+                                <img src="/<%= element.prodId.imageurl %>" class="card-img-top" alt=<%=element.prodId.title %> >
+                                <h4 class="card-title text-capitalize">
+                                    <%=element.prodId.title %>
+                                </h4>
+                                <div class="container d-flex justify-content-between w-100 p-0">
+                                    <a href="/product/<%= element.prodId._id %>" class="btn btn-primary details">Details</a>
+                                    <div class="container d-flex justify-content-end align-items-center" >Quantity: <%=element.quantity%></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                <% }); %>
+            </div>
+            <div class="container display-flex justify-content-center progress h-25">
+                <a href="/checkout" class="btn btn-success">Order Now</a>
+            </div>
+            <%- include("./layouts/pagination.ejs",{currentPage: currentPage,totalPages:totalPages,nextPage:nextPage,prevPage:prevPage}) %>
+            <%-include("./layouts/end.ejs") %>
+    </body>
+
+    </html>

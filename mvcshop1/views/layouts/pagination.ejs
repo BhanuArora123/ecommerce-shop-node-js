@@ -1,0 +1,28 @@
+<section class="pagination d-flex justify-content-center w-100">
+    <div class="container d-flex justify-content-around align-items-center w-25" id="pagination-box">
+        <% if(prevPage != currentPage){%>
+            <a class="move" href="?page=<%= prevPage %>">
+                <i class="fas fa-chevron-circle-left fa-2x">
+                </i>
+            </a>
+        <% } %>
+        <% if(currentPage > 1){ %>
+            <a class="page" href="?page=1">
+                1
+            </a>
+        <% } %>
+        <a class="active page" href="?page=<%= currentPage %>">
+            <%= currentPage%>   
+        </a>
+        <% if(totalPages != currentPage){ %>
+            <a class="page" href="?page=<%= totalPages %>">
+                <%= totalPages %>
+            </a>
+        <% } %>
+        <% if(nextPage != currentPage && currentPage != 0){ %>
+        <a class="move" href="?page=<%= nextPage %>">
+            <i class="fas fa-chevron-circle-right fa-2x"></i>
+        </a>
+        <% } %>
+    </div>
+</section>

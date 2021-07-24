@@ -1,0 +1,15 @@
+<%-include("./layouts/head.ejs") %>
+    <body>
+        <%-include("./layouts/nav.ejs") %>
+        <div class="d-flex flex-column justify-content-around align-items-center progress productDisplayBox">
+            <h1 class="display-3 text-capitalize"><%= title %></h1>
+            <img class="descImg" src="/<%= imageurl %>" alt=<%= title %>>
+            <div class="container d-flex justify-content-around align-items-center">
+                <div class="fs-5">Price :  Rs. <%= price %></div>
+                <%- include("./layouts/redirectToCart.ejs",{element:{"prod":title,"prodDesc":description,"price":price,"_id":_id},loggedIn:loggedIn}) %>
+            </div>
+            <p class="w-75 fs-6"><%= description %></p>
+        </div>
+        <%-include("./layouts/end.ejs") %>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.pagination{
+  height: 70px;
+}
+.page{
+  width: 15%;
+  height: 40%;
+  text-decoration: none;
+  color: green;
+  background-color: white;
+  font-weight: bold;
+  border:1px solid green;
+  display: flex;
+  justify-content: center;
+}
+.page:hover{
+  color: white;
+  background-color: green;
+}
+.move{
+  color: green;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.move:hover{
+  color: blue;
+}
+.card-img-top{
+  width: 80%;
+  height: 70%;
+}
+.card{
+  height: 40%;
+  cursor: pointer;
+}
+.descImg{
+  width: 50%;
+  height: 45%;
+}
+.details:hover{
+  background-color: green;
+  color: white;
+}
+.details{
+  color: black;
+  background-color: white;
+}
+.fa-window-close:hover{
+  color: red;
+}
+.fa-window-close{
+  color: green;
+}
+.formBody{
+    height: 800px;
+    background-color: lightgrey;
+}
+.danger{
+    height: 50px;
+}
+.danger1{
+    height:150px;
+}
+.wrapperBox,.loginBox,.orderBox,.productBox{
+    height:1150px;
+    padding-top: 20px; 
+    box-sizing:border-box;
+    background-color:lightgrey;
+}
+.card{
+    width: 18rem;
+}
+.deleteBtn,.deleteBtn1{
+    position: absolute;
+    top:5px ;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    text-decoration: none;
+}
+.loginBox{
+    height:300px;
+    background-color: white;
+}
+.reset{
+    padding-bottom:50px;
+    padding-left: 0;
+    padding-right: 10px;
+}
+.orderHead{
+    height: 70px;
+}
+.orderBox{
+    height:500px;
+}
+.productBox{
+    height:1000px;
+}
+.productCard{
+    height: 300px;
+}
+.productDisplayBox{
+    height: 700px;
+}
+.signupBox{
+    height:400px;
+}
+.imgBox{
+  width: 80%;
+  height: 80%;
+}

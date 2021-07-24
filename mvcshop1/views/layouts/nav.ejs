@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+            <% if(loggedIn) {%>
+                <li class="nav-item ml-4"><a class="nav-link active text-white fs-6" aria-current="page"
+                        href="/add-product">
+                        <b>Add
+                            Product</b></a></li>
+                <% }%>
+                    <li class="nav-item ml-4"><a class="nav-link active text-white fs-6" aria-current="page"
+                            href="/products">
+                            <b>Product</b></a></li>
+                    <% if(loggedIn) {%>
+                    <li class="nav-item ml-4"><a class="nav-link active text-white fs-6" aria-current="page"
+                            href="/cart">
+                            <b>Cart</b></a></li>
+                    <li class="nav-item ml-4"><a class="nav-link active text-white fs-6" aria-current="page"
+                            href="/Orders">
+                            <b>Orders</b></a></li>
+                    <% }%>
+                    <% if(!loggedIn){%>
+                        <li class="nav-item mr-5 float-right">
+                            <a href="/login" class="nav-link active text-white fs-6"><b>Login</b></a>
+                        </li>
+                        <li class="nav-item mr-5 float-right">
+                            <a href="/sign-up" class="nav-link active text-white fs-6"><b>Sign Up</b></a>
+                        </li>
+                    <% } else{ %>
+                    <li class="nav-item mr-5 float-right">
+                        <form action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button type="submit" class="nav-link active text-white fs-6 btn btn-success">
+                                <b>
+                                    Logout
+                                </b>
+                            </button>
+                        </form>
+                    </li>
+                    <% } %>
+        </ul>
+    </div>
+</nav>

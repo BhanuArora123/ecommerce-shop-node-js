@@ -1,0 +1,1 @@
+web: node .\mvcshop1\routes\shop.js
