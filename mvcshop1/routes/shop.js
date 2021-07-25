@@ -119,8 +119,6 @@ app.use(multer({
 })
     .single("imageurl"));
 
-app.set("trust proxy",1)
-
 app.use(session({
     secret: 'my secret',
     resave: false,
@@ -139,7 +137,6 @@ app.use("/mvcshop1/public", express.static(path.join(__dirname, "../public")));
 app.use("/mvcshop1/images", express.static(path.join(__dirname, "../images")));
 
 app.use((req, res, next) => {
-    console.log(req.session);
     if (req.session.user) {
         User.findById(req.session.user._id)
             .then((user) => {
