@@ -277,7 +277,8 @@ app.get("/", productControl.homePage);
 app.use((error,req,res,next) => {
     res.render("../views/errorPage.ejs",{
         status:error.statusCode,
-        message:error.message
+        message:error.message,
+        loggedIn:req.session.loggedIn
     })
 })
 
