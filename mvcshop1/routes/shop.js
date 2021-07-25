@@ -71,12 +71,16 @@ const filefilter = (req, file, cb) => {
         cb(null, false);
     }
 }
+
+
+
 const errorPage = require("../controllers/error");
 
 const productControl = require("../controllers/productMongoDb");
 
 const cartControl = require("../controllers/cartHandler");
-const { crossOriginResourcePolicy } = require("helmet");
+
+
 app.set("view engine", "ejs");
 app.set("views", "mvcshop1/views");
 
@@ -114,6 +118,8 @@ app.use(multer({
     fileFilter: filefilter
 })
     .single("imageurl"));
+
+app.set("trust proxy",1)
 
 app.use(session({
     secret: 'my secret',
