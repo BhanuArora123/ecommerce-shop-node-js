@@ -1,7 +1,7 @@
 <%- include("./layouts/head.ejs") %>
 
     <body>
-        <%-include("./layouts/nav.ejs") %>
+        <%-include("./layouts/nav.ejs",loggedIn) %>
             <% if(editProd==true){ %>
                 <div class="container w-100">
                     <div class="alert alert-success alert-dismissible fade show h-100 w-100" role="alert">
