@@ -98,6 +98,7 @@ exports.getCheckout = (req, res, next) => {
             });
         })
         .catch((err) => {
+            console.log(err);
             let error = new Error(err);
             error.statusCode = 400;
             return next(error);
