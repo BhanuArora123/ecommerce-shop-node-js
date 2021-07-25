@@ -9,8 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .\\mvcshop1\\routes\\shop.js",
-    "start:dev": "nodemon .\\mvcshop1\\routes\\shop.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start:dev": "nodemon .\\mvcshop1\\routes\\shop.js"
   },
   "author": "bhanu",
   "license": "ISC",
