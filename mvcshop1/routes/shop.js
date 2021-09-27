@@ -157,6 +157,13 @@ app.use((req, res, next) => {
     next();
 })
 
+app.post("/webhook",express.json(),(req,res,next) => {
+    console.log(req.body.data);
+    res.status(200).json({
+        executed:true
+    })
+});
+
 app.post("/updatePass",
     [
         body('pass', "please enter a password with atleast 16 characters")
